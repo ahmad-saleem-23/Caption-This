@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #faf8f1;
   color: #0a1520;
@@ -18,12 +24,30 @@ flex-direction: column;
 }
 
 .meme-button {
-  text-decoration: none;
+text-decoration: none;
+padding: 12px;
+margin: 8px;
 color: #fff; 
-background-color: lightblue;
+background-color: #1DE2FD;
 text-align: center;
 transition: all 0.3s ease;
+border-radius: 10px;
+outline: 0;
+border-style: none;
+}
 
+.submit-button:hover {
+  background-color: #00AFC7;
+}
 
+.submit-button {
+  background-color: #00AFC7
+}
+
+.generate-button {
+  background-color: #E476FF;
+}
+.generate-button:hover {
+  background-color: #CA08F9;
 }
 

@@ -10,7 +10,7 @@ interface Memes{
 }
 
 const memes : Memes  = {images: [
-  {id: 1, name: 'squint', link: 'img-1.gif', comment:  ['']  }, 
+  {id: 1, name: 'squint', link: 'img-1.gif', comment:  ['squinty', 'curious!']  }, 
   {id: 2, name: 'john travolta', link: 'img-2.gif', comment:  ['']  },
   {id: 3, name: 'monkey', link: 'img-3.gif', comment:  ['']  },
   {id: 4, name: 'sad-cat', link: 'img-4.png', comment:  ['']  },
