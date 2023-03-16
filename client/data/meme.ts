@@ -14,4 +14,7 @@ const memes : Memes  = {images: [
   {id: 2, name: 'string', link: 'string', comment:  ['']  }, ]}
 
 
+  
+export default memes
+
 // https://github.com/tohora-2023/worldwide-routing/blob/ahmad/data/continents.ts
