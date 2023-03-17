@@ -29,11 +29,18 @@ export default function Gallery() {
       <div>
         {memeData.images.map((image: Image) => {
           return (
-            <img
-              key={image.id}
-              src={`./images/${image.link}`}
-              alt={image.name}
-            />
+            <>
+              <img
+                key={image.id}
+                src={`./images/${image.link}`}
+                alt={image.name}
+              />
+              <p>
+                {image.comment.map((comment, index) => {
+                  return <p key={index}>{comment}</p>
+                })}
+              </p>
+            </>
           )
         })}
       </div>
