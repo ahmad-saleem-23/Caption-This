@@ -1,3 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header, h2{
+  text-align: center;
+}
+
+#nav-header {
+  text-align: left;
+}
+
 body {
   background-color: #faf8f1;
   color: #0a1520;
@@ -6,8 +20,81 @@ body {
 
 .main {
   display: flex;
+  max-width: 70%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.meme-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.gallery-container {
   max-width: 1200px;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+  display: flex;
+  direction: row;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  padding: 20px;
+  justify-content: center;
+}
+
+.gallery-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 5%;
+}
+
+.comment-item {
+  text-decoration: none;
+}
+
+.comments {
+  list-style: none;
+}
+
+
+.meme-button {
+text-decoration: none;
+padding: 12px;
+margin: 8px;
+color: #fff; 
+background-color: #1DE2FD;
+text-align: center;
+transition: all 0.3s ease;
+border-radius: 10px;
+outline: 0;
+border-style: none;
+cursor: pointer;
+}
+
+
+
+.submit-button {
+  background-color: #34E6FF
+}
+
+.submit-button:hover {
+  background-color: #00AFC7;
+}
+
+.generate-button {
+  background-color: #E476FF;
+}
+.generate-button:hover {
+  background-color: #CA08F9;
+}
+
+.comment {
+  font-weight: 700;
+  font-size: 28px;
 }
