@@ -26,20 +26,27 @@ export default function Gallery() {
   return (
     <div>
       <h2>Gallery</h2>
-      <div>
+      <div className="gallery-container" key="gallery-container">
         {memeData.images.map((image: Image) => {
           return (
             <>
-              <img
-                key={image.id}
-                src={`./images/${image.link}`}
-                alt={image.name}
-              />
-              <p>
-                {image.comment.map((comment, index) => {
-                  return <p key={index}>{comment}</p>
-                })}
-              </p>
+              <div className="gallery-item">
+                <img
+                  key={image.id}
+                  src={`./images/${image.link}`}
+                  alt={image.name}
+                  className="gallery-image"
+                />
+                <ul className="comments">
+                  {image.comment.map((comment, index) => {
+                    return (
+                      <li className="comment-item" key={index}>
+                        {comment}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
             </>
           )
         })}

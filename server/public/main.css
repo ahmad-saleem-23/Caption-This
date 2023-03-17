@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+header, h2{
+  text-align: center;
+}
+
 body {
   background-color: #faf8f1;
   color: #0a1520;
@@ -12,7 +16,7 @@ body {
 
 .main {
   display: flex;
-  max-width: 1200px;
+  max-width: 70%;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
@@ -22,6 +26,36 @@ body {
 display: flex;
 flex-direction: column;
 }
+
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  direction: row;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  padding: 20px;
+  justify-content: center;
+}
+
+.gallery-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 5%;
+}
+
+.comment-item {
+  text-decoration: none;
+}
+
+.comments {
+  list-style: none;
+}
+
 
 .meme-button {
 text-decoration: none;
