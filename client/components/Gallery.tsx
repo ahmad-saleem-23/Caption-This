@@ -9,6 +9,8 @@ import Memes from '../data/meme'
 //create a link back to the meme page
 //http://localhost:3000/captionthis/:id
 
+
+
 interface Image {
   id: number
   name: string
