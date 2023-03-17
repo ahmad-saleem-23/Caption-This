@@ -12,14 +12,17 @@ interface Memes {
   images: Image[]
 }
 
-interface Props {Memes: Memes, setMemes: React.Dispatch<React.SetStateAction<Memes>>}
+interface Props {
+  Memes: Memes
+  setMemes: React.Dispatch<React.SetStateAction<Memes>>
+}
 
 
-export default function Meme({Memes, setMemes}: Props) {
- 
+
+export default function Meme({ Memes, setMemes }: Props) {
   // const [Memes, setMemes] = useState(memes)
   const [img, setimg] = useState(generateMeme())
-  const[text, setText] = useState('')
+  const [text, setText] = useState('')
 
   function generateMeme() {
     const randMemeIndex = Math.floor(Math.random() * Memes.images.length)
@@ -27,60 +30,52 @@ export default function Meme({Memes, setMemes}: Props) {
     return image
   }
 
- 
- function displayRandImg() {
-        return (
+  function displayRandImg() {
+    return (
       <>
-      <div>
-        <img src={`./images/${img.link}`} alt={img.name} />
         <div>
-          {Memes.images[img.id-1].comment.map((comment) => (
-            <p key={comment}>{comment}</p>
-          ))}
+          <h2>Add a caption</h2>
+          <img src={`./images/${img.link}`} alt={img.name} />
+          <div>
+            {Memes.images[img.id - 1].comment.map((comment) => (
+              <p className='comment' key={comment}>{comment}</p>
+            ))}
+          </div>
         </div>
-        </div>
-        
       </>
     )
   }
-
-  
-
+ 
   function handleGenerate() {
     const newImg = generateMeme()
- 
+
     setimg(newImg)
   }
 
-
-  function handlechange(event:React.ChangeEvent<HTMLInputElement>) {
-    event.preventDefault();
-    const comment=event.target.value
+  function handlechange(event: React.ChangeEvent<HTMLInputElement>) {
+    event.preventDefault()
+    const comment = event.target.value
     setText(comment)
   }
+  function clearInput() {
+    setText('')
+  }
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>){
-  
-    event.preventDefault();
-    
-    const UpdatedImages = Memes.images.map((meme) =>  {
-    if(img.id === meme.id)  {
-      console.log(meme)
-console.log({...meme,
-  comment:[...meme.comment, text]})
-      return {...meme,
-        comment:[...meme.comment, text]}
-        
-                   
-            
-    } else {
-      return meme
-    }
-   
+    const UpdatedImages = Memes.images.map((meme) => {
+      if (img.id === meme.id) {
+        console.log(meme)
+        console.log({ ...meme, comment: [...meme.comment, text] })
+        return { ...meme, comment: [...meme.comment, text] }
+      } else {
+        return meme
+      }
     })
-
-    const UpdatedMemes = {images: UpdatedImages}
+   
+    const UpdatedMemes = { images: UpdatedImages }
     setMemes(UpdatedMemes)
+    clearInput() 
   }
 
   return (
@@ -89,18 +84,22 @@ console.log({...meme,
         <>{displayRandImg()}</>
         <div>
           <form onSubmit={handleSubmit}>
-          
-          <input type="text" 
-            name='comment'           
-            value={text}
-            onChange={handlechange}/>
-            <button  type='submit' className = "meme-button submit-button">  Submit CaptionReact
+            <input
+              type="text"
+              name="comment"
+              value={text}
+              onChange={handlechange}
+            />
+            <button type="submit" className="meme-button submit-button">
+              {' '}
+              Submit Caption
             </button>
           </form>
 
           <button
             className="meme-button generate-button"
-            onClick={handleGenerate}>
+            onClick={handleGenerate}
+          >
             Generate Image
           </button>
         </div>

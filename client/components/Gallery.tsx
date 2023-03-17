@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Memes from '../data/meme'
+// import Memes from '../data/meme'
 
 //get a list of images
 //display the images to the grid
@@ -19,17 +19,18 @@ interface Image {
 }
 
 interface Memes {
-  images: Images[]
+  images: Image []
 }
+interface Props {MemeData: Memes, setMemes: React.Dispatch<React.SetStateAction<Memes>>}
 
-export default function Gallery() {
-  const [memeData, setMemes] = useState(Memes)
+export default function Gallery({ MemeData, setMemes }: Props) {
+  //const [MemeData, setMemes] = useState(MemeData)
 
   return (
     <div>
       <h2>Gallery</h2>
       <div className="gallery-container" key="gallery-container">
-        {memeData.images.map((image: Image) => {
+        {MemeData.images.map((image: Image) => {
           return (
             <>
               <div className="gallery-item">

@@ -17,7 +17,7 @@ function App() {
       <div className="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/gallery" element={<Gallery MemeData= {Memes} setMemes={setMemes}/>} />
           <Route path="/captionthis" element={<Meme Memes={Memes} setMemes={setMemes}/>} />
         </Routes>
       </div>
