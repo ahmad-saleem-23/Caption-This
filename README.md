@@ -1,4 +1,9 @@
-# React Boilerplate
+# React 
+
+This Was a group project were we intended to build a a game where you can add captions to randome memes.
+things we inteded to add voting for the captions. 
+importing from an API of memes.
+also the ability to add your own meme.
 
 ## Packages Included
 
