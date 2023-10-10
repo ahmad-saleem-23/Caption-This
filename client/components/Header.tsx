@@ -1,7 +1,8 @@
 export default function Header() {
   return (
-    <header>
-      <h1>Caption This!</h1>
+    <header className="flex justify-left items-start bg-green-500 ">
+      <img src="/images/Caption This!-logos_black.png" alt="Caption This Logo" className="p-[20px]
+      "/>
     </header>
   )
 }

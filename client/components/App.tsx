@@ -12,18 +12,29 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Nav />
-      <div className="main">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/gallery" element={<Gallery MemeData= {Memes} setMemes={setMemes}/>} />
-          <Route path="/captionthis" element={<Meme Memes={Memes} setMemes={setMemes}/>} />
-        </Routes>
+      <div className="bg-green-500 h-screen">
+        {/* <Header /> */}
+        <div className="flex flex-row flex-wrap 
+ h-full
+        ">
+          <Nav />
+          <div className="main">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/gallery"
+                element={<Gallery MemeData={Memes} setMemes={setMemes} />}
+              />
+              <Route
+                path="/captionthis"
+                element={<Meme Memes={Memes} setMemes={setMemes} />}
+              />
+            </Routes>
+          </div>
+        </div>
       </div>
     </>
   )
 }
-
 
 export default App
