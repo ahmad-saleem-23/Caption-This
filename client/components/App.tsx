@@ -14,11 +14,11 @@ function App() {
     <>
       <div className="bg-green-500 h-screen">
         {/* <Header /> */}
-        <div className="flex flex-row flex-wrap 
+        <div className="flex flex-row 
  h-full
         ">
           <Nav />
-          <div className="main">
+          <div className="w-full">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route

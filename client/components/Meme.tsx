@@ -17,8 +17,6 @@ interface Props {
   setMemes: React.Dispatch<React.SetStateAction<Memes>>
 }
 
-
-
 export default function Meme({ Memes, setMemes }: Props) {
   // const [Memes, setMemes] = useState(memes)
   const [img, setimg] = useState(generateMeme())
@@ -34,18 +32,19 @@ export default function Meme({ Memes, setMemes }: Props) {
     return (
       <>
         <div>
-          <h2>Add a caption</h2>
           <img src={`./images/${img.link}`} alt={img.name} />
           <div>
             {Memes.images[img.id - 1].comment.map((comment) => (
-              <p className='comment' key={comment}>{comment}</p>
+              <p className="comment" key={comment}>
+                {comment}
+              </p>
             ))}
           </div>
         </div>
       </>
     )
   }
- 
+
   function handleGenerate() {
     const newImg = generateMeme()
 
@@ -72,36 +71,43 @@ export default function Meme({ Memes, setMemes }: Props) {
         return meme
       }
     })
-   
+
     const UpdatedMemes = { images: UpdatedImages }
     setMemes(UpdatedMemes)
-    clearInput() 
+    clearInput()
   }
 
   return (
     <>
-      <div className="meme-container">
-        <>{displayRandImg()}</>
-        <div>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="comment"
-              value={text}
-              onChange={handlechange}
-            />
-            <button type="submit" className="meme-button submit-button">
-              {' '}
-              Submit Caption
-            </button>
-          </form>
+      <div className=" justify-center items-start h-screen w-full">
+        <div className="w-full bg-green-400 p-[20px]">
+          <h2 className="text-2xl text-center font-bold p-2">Add A Caption</h2>
+        </div>
+        <div className="w-full flex justify-center items-center p-20">
+          <div className="meme-container">
+            <>{displayRandImg()}</>
+            <div>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="comment"
+                  value={text}
+                  onChange={handlechange}
+                />
+                <button type="submit" className="meme-button submit-button">
+                  {' '}
+                  Submit Caption
+                </button>
+              </form>
 
-          <button
-            className="meme-button generate-button"
-            onClick={handleGenerate}
-          >
-            Generate Image
-          </button>
+              <button
+                className="meme-button generate-button"
+                onClick={handleGenerate}
+              >
+                Generate Image
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>
