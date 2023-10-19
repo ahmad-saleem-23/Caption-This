@@ -50,11 +50,10 @@ const CaptionPage = ({ Memes, setMemes }: Props) => {
   }
 
   return (
-    <div className=" justify-center items-start h-screen">
+    <div className=" justify-center items-start h-screen w-full">
       <div className="w-full bg-green-400 p-[20px]">
-        <h2 className="text-2xl text-center font-bold p-2">Home</h2>
+        <h2 className="text-2xl text-center font-bold p-2">Caption</h2>
       </div>
-
       <div className="w-full flex justify-center items-center p-20">
         <div className="meme-container">
           <img
@@ -63,6 +62,7 @@ const CaptionPage = ({ Memes, setMemes }: Props) => {
             alt={meme?.name}
             className="w-full h-full object-cover rounded-2xl"
           />
+          <p className="comment">{meme?.comment}</p>
         </div>
 
         <div>
