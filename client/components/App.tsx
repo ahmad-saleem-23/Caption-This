@@ -6,6 +6,7 @@ import Gallery from './Gallery'
 import Meme from './Meme'
 import memes from '../data/meme'
 import { useState } from 'react'
+import CaptionPage from './CptionPage'
 
 function App() {
   const [Memes, setMemes] = useState(memes)
@@ -29,6 +30,9 @@ function App() {
                 path="/captionthis"
                 element={<Meme Memes={Memes} setMemes={setMemes} />}
               />
+              {/* <Route
+                path="/captionthis/:id"
+                element={<CaptionPage Memes={Memes} setMemes={setMemes} />}  */}
             </Routes>
           </div>
         </div>

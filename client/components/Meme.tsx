@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import memes from '../data/meme'
+
 
 interface Image {
   id: number
