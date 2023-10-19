@@ -30,9 +30,9 @@ function App() {
                 path="/captionthis"
                 element={<Meme Memes={Memes} setMemes={setMemes} />}
               />
-              {/* <Route
+              <Route
                 path="/captionthis/:id"
-                element={<CaptionPage Memes={Memes} setMemes={setMemes} />}  */}
+                element={<CaptionPage Memes={Memes} setMemes={setMemes} />}/> 
             </Routes>
           </div>
         </div>
