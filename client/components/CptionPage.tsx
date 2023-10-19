@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 interface Image {
@@ -18,12 +18,36 @@ interface Props {
 }
 
 const CaptionPage = ({ Memes, setMemes }: Props) => {
+  const [text, setText] = useState('')
   const params = useParams<{ id: string }>()
   const id = Number(params.id)
-  console.log(id)
   const meme = Memes.images.find((meme) => meme.id === id)
-  console.log(meme)
-  console.log(`/images/img-2.gif`)
+
+  function handlechange(event: React.ChangeEvent<HTMLInputElement>) {
+    event.preventDefault()
+    const comment = event.target.value
+    setText(comment)
+  }
+  function clearInput() {
+    setText('')
+  }
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    const UpdatedImages = Memes.images.map((meme) => {
+      if (id === meme.id) {
+        console.log(meme)
+        console.log({ ...meme, comment: [...meme.comment, text] })
+        return { ...meme, comment: [...meme.comment, text] }
+      } else {
+        return meme
+      }
+    })
+
+    const UpdatedMemes = { images: UpdatedImages }
+    setMemes(UpdatedMemes)
+    clearInput()
+  }
 
   return (
     <div className=" justify-center items-start h-screen">
@@ -32,13 +56,28 @@ const CaptionPage = ({ Memes, setMemes }: Props) => {
       </div>
 
       <div className="w-full flex justify-center items-center p-20">
-          <div className="meme-container">
-        <img
-          key={meme?.id}
-          src={`/images/${meme?.link}`}
-          alt={meme?.name}
-          className="w-full h-full object-cover rounded-2xl"
-        />
+        <div className="meme-container">
+          <img
+            key={meme?.id}
+            src={`/images/${meme?.link}`}
+            alt={meme?.name}
+            className="w-full h-full object-cover rounded-2xl"
+          />
+        </div>
+
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="comment"
+              value={text}
+              onChange={handlechange}
+            />
+            <button type="submit" className="meme-button submit-button">
+              {' '}
+              Submit Caption
+            </button>
+          </form>
         </div>
       </div>
     </div>
